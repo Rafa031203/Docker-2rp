@@ -1,0 +1,36 @@
+##Em uma maquina virtual Linux
+
+Logar como root
+apt update
+apt upgrade
+
+##Instalar pacotes necessários para à instalação do Docker via HTTPS:
+
+apt install apt-transport-https ca-certificates curl gnupg software-properties-
+common
+
+##Adicionar o repositório do Docker:
+add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+
+###Instalação do Docker:
+apt update
+apt install docker-ce
+
+##No final da instalação, para ter o serviço sendo executado na inicialização do sistema
+systemctl enable docker
+ou
+ systemctl start docker
+
+#Puxar a imagem do ubuntu, que é o que eu estou usando 
+docker search ubuntu
+
+###Para iniciar o container e dando nome do container 
+docker run --name MyContainer -it ubuntu bash
+
+ ##instalando o Kubernetes no ubuntu
+ ###Pacotes necessários para utilizar o repositório apt do Kubernetes:
+apt-get install -y apt-transport-https ca-certificates curl
+
+#Baixando o kubelet, o kubeadm e o kubect
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
